@@ -1,0 +1,32 @@
+.base {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
+}
+
+.green {
+  color: green;
+}
+
+.orange {
+  color: orange;
+}
+
+.red {
+  color: crimson;
+}
+
+.normal {
+  font-size: 5rem;
+}
+
+.big {
+  font-size: 8rem;
+}
+
+.spacingContainer {
+  display: flex;
+  justify-content: space-around;
+}

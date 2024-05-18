@@ -1,0 +1,16 @@
+.container {
+  background-color: #212121;
+  color: white;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 1280px;
+  min-width: 720px;
+  height: auto;
+  max-height: 720px;
+  min-height: 272px;
+  display: flex;
+  flex-direction: column;
+  mask: radial-gradient(1px, #fff 100%, transparent 100%) 0 0/2px 2px;
+}
