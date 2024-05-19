@@ -1,5 +1,7 @@
 import { atom } from "jotai";
 import uniqueId from "lodash/uniqueId";
+import { formAtom } from "./form";
+import { store } from "../constants/jotai";
 
 type BlockType =
   | "stationName"
@@ -32,82 +34,84 @@ const COLOR_PREST: Record<ColorPresetKey, string> = {
   red: "crimson",
 } as const;
 
+const formAtomValue = store.get(formAtom);
+
 const INITIAL_BLOCK_MAP: Record<BlockType, Block> = {
   stationName: {
     id: uniqueId(),
     label: "駅名",
     type: "stationName",
-    value: "松屋",
+    value: formAtomValue.stationName,
     textColor: COLOR_PREST.orange,
   },
   stationNameKana: {
     id: uniqueId(),
     label: "駅名(読み)",
     type: "stationNameKana",
-    value: "マツヤ",
+    value: formAtomValue.stationNameKana,
     textColor: COLOR_PREST.orange,
   },
   stationNameRoman: {
     id: uniqueId(),
     label: "駅名(ローマ字)",
     type: "stationNameRoman",
-    value: "Matsuya",
+    value: formAtomValue.stationNameRoman,
     textColor: COLOR_PREST.orange,
   },
   stationNumber: {
     id: uniqueId(),
     label: "駅番号",
     type: "stationNumber",
-    value: "TK-28",
+    value: formAtomValue.stationNumber,
     textColor: COLOR_PREST.orange,
   },
   lineName: {
     id: uniqueId(),
     label: "路線名",
     type: "lineName",
-    value: "松屋線",
+    value: formAtomValue.lineName,
     textColor: COLOR_PREST.green,
   },
   lineNameRoman: {
     id: uniqueId(),
     label: "路線名(ローマ字)",
     type: "lineNameRoman",
-    value: "Matsuya Line",
+    value: formAtomValue.lineNameRoman,
     textColor: COLOR_PREST.green,
   },
   trainTypeName: {
     id: uniqueId(),
     label: "種別名",
     type: "trainTypeName",
-    value: "急行",
+    value: formAtomValue.trainTypeName,
     textColor: COLOR_PREST.red,
   },
   trainTypeNameRoman: {
     id: uniqueId(),
     label: "種別名(ローマ字)",
     type: "trainTypeNameRoman",
-    value: "Express",
+    value: formAtomValue.trainTypeNameRoman,
     textColor: COLOR_PREST.red,
   },
   finalDestinationName: {
     id: uniqueId(),
     label: "終着駅",
     type: "finalDestinationName",
-    value: "朕邸",
+    value: formAtomValue.finalDestinationName,
     textColor: COLOR_PREST.orange,
   },
   finalDestinationNameRoman: {
     id: uniqueId(),
     label: "終着駅(ローマ字)",
     type: "finalDestinationNameRoman",
-    value: "TK Residence",
+    value: formAtomValue.finalDestinationNameRoman,
     textColor: COLOR_PREST.orange,
   },
   finalDestinationNumber: {
     id: uniqueId(),
     label: "終着駅番号",
     type: "finalDestinationNumber",
-    value: "TK-28",
+    value: formAtomValue.finalDestinationNumber,
     textColor: COLOR_PREST.orange,
   },
   customText: {

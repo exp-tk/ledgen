@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Provider } from "./provider";
 
 const myFont = localFont({
   src: "./fonts/JF-Dot-jiskan24.woff2",
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={myFont.className}>{children}</body>
+      <body className={myFont.className}>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }

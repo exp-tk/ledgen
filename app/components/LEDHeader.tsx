@@ -4,8 +4,12 @@ import { useMemo } from "react";
 import { languageAtom } from "../state/language";
 import style from "./LEDHeader.module.css";
 import { Text } from "./Text";
+import { formAtom } from "../state/form";
 
 export const LEDHeader = () => {
+  const { stationName, stationNameKana, stationNameRoman, stationNumber } =
+    useAtomValue(formAtom);
+
   const lang = useAtomValue(languageAtom);
   const nextStateText = useMemo(() => {
     switch (lang) {
@@ -19,10 +23,10 @@ export const LEDHeader = () => {
     }
   }, [lang]);
 
-  const stationNameStub = {
-    ja: "松屋",
-    kana: "マツヤ",
-    en: "Matsuya",
+  const stationNameMap: Record<string, string> = {
+    ja: stationName,
+    kana: stationNameKana,
+    en: stationNameRoman,
   };
 
   return (
@@ -32,9 +36,9 @@ export const LEDHeader = () => {
       </div>
       <div className={style.station}>
         <Text enableSpacing={lang !== "en"} size="big" color="orange">
-          {stationNameStub[lang] ?? ""}
+          {stationNameMap[lang] ?? ""}
         </Text>
-        {lang === "en" && <Text color="orange">(TK-28)</Text>}
+        {lang === "en" && <Text color="orange">({stationNumber})</Text>}
       </div>
     </div>
   );

@@ -15,15 +15,15 @@ type FormAtom = {
 };
 
 export const formAtom = atom<FormAtom>({
-  stationName: "松屋",
-  stationNameKana: "マツヤ",
-  stationNameRoman: "Matsuya",
-  stationNumber: "TK-02",
-  lineName: "松屋線",
-  lineNameRoman: "Matsuya Line",
+  stationName: "南町田グランベリーパーク",
+  stationNameKana: "ミナミマチダグランベリーパーク",
+  stationNameRoman: "Minami-machida Grandberry Park",
+  stationNumber: "DT-25",
+  lineName: "田園都市線",
+  lineNameRoman: "Den-en-toshi Line",
   trainTypeName: "急行",
   trainTypeNameRoman: "Express",
-  finalDestinationName: "朕邸",
-  finalDestinationNameRoman: "TK Residence",
-  finalDestinationNumber: "TK-28",
+  finalDestinationName: "中央林間",
+  finalDestinationNameRoman: "Chuo-rinkan",
+  finalDestinationNumber: "DT-27",
 });
