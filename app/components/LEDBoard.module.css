@@ -9,6 +9,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2.5rem;
-  margin-right: 10rem;
+}
+
+.space {
+  width: 2rem;
+}
+.separator {
+  width: 10rem;
+}
+.narrow {
+  margin: 0 -2rem;
 }
