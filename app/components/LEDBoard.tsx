@@ -1,12 +1,14 @@
 import { useAtomValue } from "jotai";
 import Marquee from "react-fast-marquee";
 import { blockAtom } from "../state/block";
+import { formAtom } from "../state/form";
 import style from "./LEDBoard.module.css";
 import { Text } from "./Text";
 
 export const LEDBoard = () => {
+  const formVal = useAtomValue(formAtom);
   const blocks = useAtomValue(blockAtom);
-  console.warn(blocks);
+
   return (
     <Marquee className={style.marquee} gradient={false} speed={750}>
       <div className={style.container}>
@@ -20,7 +22,7 @@ export const LEDBoard = () => {
               kind="marquee"
               color={block.textColor ?? "green"}
             >
-              {block.value}
+              {block.formKey ? formVal[block.formKey] : block.value ?? ""}
             </Text>
           ) : (
             <div key={block.id} className={style[block.type]} />

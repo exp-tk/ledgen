@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 
-type FormAtom = {
+export type FormAtom = {
   stationName: string;
   stationNameKana: string;
   stationNameRoman: string;

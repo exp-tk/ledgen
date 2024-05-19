@@ -1,129 +1,100 @@
 import { atom } from "jotai";
 import uniqueId from "lodash/uniqueId";
-import { formAtom } from "./form";
-import { store } from "../constants/jotai";
+import {
+  Block,
+  BlockType,
+  COLOR_PREST,
+  SpecialBlockType,
+} from "../constants/block";
+import { makeCustomTextBlock } from "../utils/block";
 
-type BlockType =
-  | "stationName"
-  | "stationNameKana"
-  | "stationNameRoman"
-  | "stationNumber"
-  | "lineName"
-  | "lineNameRoman"
-  | "trainTypeName"
-  | "trainTypeNameRoman"
-  | "finalDestinationName"
-  | "finalDestinationNameRoman"
-  | "finalDestinationNumber"
-  | "customText";
-
-type SpecialBlockType = "space" | "separator" | "narrow";
-
-type Block = {
-  readonly id: string;
-  readonly label: string;
-  readonly type: BlockType | SpecialBlockType;
-  value?: string;
-  textColor?: string;
-};
-
-type ColorPresetKey = "green" | "orange" | "red";
-const COLOR_PREST: Record<ColorPresetKey, string> = {
-  green: "green",
-  orange: "orange",
-  red: "crimson",
-} as const;
-
-const formAtomValue = store.get(formAtom);
-
-const INITIAL_BLOCK_MAP: Record<BlockType, Block> = {
+export const INITIAL_BLOCK_MAP: Record<BlockType, Block> = {
   stationName: {
     id: uniqueId(),
     label: "駅名",
     type: "stationName",
-    value: formAtomValue.stationName,
+    formKey: "stationName",
     textColor: COLOR_PREST.orange,
   },
   stationNameKana: {
     id: uniqueId(),
     label: "駅名(読み)",
     type: "stationNameKana",
-    value: formAtomValue.stationNameKana,
+    formKey: "stationNameKana",
     textColor: COLOR_PREST.orange,
   },
   stationNameRoman: {
     id: uniqueId(),
     label: "駅名(ローマ字)",
     type: "stationNameRoman",
-    value: formAtomValue.stationNameRoman,
+    formKey: "stationNameRoman",
     textColor: COLOR_PREST.orange,
   },
   stationNumber: {
     id: uniqueId(),
     label: "駅番号",
     type: "stationNumber",
-    value: formAtomValue.stationNumber,
+    formKey: "stationNumber",
     textColor: COLOR_PREST.orange,
   },
   lineName: {
     id: uniqueId(),
     label: "路線名",
     type: "lineName",
-    value: formAtomValue.lineName,
+    formKey: "lineName",
     textColor: COLOR_PREST.green,
   },
   lineNameRoman: {
     id: uniqueId(),
     label: "路線名(ローマ字)",
     type: "lineNameRoman",
-    value: formAtomValue.lineNameRoman,
+    formKey: "lineNameRoman",
     textColor: COLOR_PREST.green,
   },
   trainTypeName: {
     id: uniqueId(),
     label: "種別名",
     type: "trainTypeName",
-    value: formAtomValue.trainTypeName,
+    formKey: "trainTypeName",
     textColor: COLOR_PREST.red,
   },
   trainTypeNameRoman: {
     id: uniqueId(),
     label: "種別名(ローマ字)",
     type: "trainTypeNameRoman",
-    value: formAtomValue.trainTypeNameRoman,
+    formKey: "trainTypeNameRoman",
     textColor: COLOR_PREST.red,
   },
   finalDestinationName: {
     id: uniqueId(),
     label: "終着駅",
     type: "finalDestinationName",
-    value: formAtomValue.finalDestinationName,
+    formKey: "finalDestinationName",
     textColor: COLOR_PREST.orange,
   },
   finalDestinationNameRoman: {
     id: uniqueId(),
     label: "終着駅(ローマ字)",
     type: "finalDestinationNameRoman",
-    value: formAtomValue.finalDestinationNameRoman,
+    formKey: "finalDestinationNameRoman",
     textColor: COLOR_PREST.orange,
   },
   finalDestinationNumber: {
     id: uniqueId(),
     label: "終着駅番号",
     type: "finalDestinationNumber",
-    value: formAtomValue.finalDestinationNumber,
+    formKey: "finalDestinationNumber",
     textColor: COLOR_PREST.orange,
   },
   customText: {
     id: uniqueId(),
     label: "カスタムテキスト",
     type: "customText",
-    value: "",
     textColor: COLOR_PREST.green,
   },
 } as const;
 
-const SPECIAL_BLOCK_MAP: Record<SpecialBlockType, Block> = {
+export const SPECIAL_BLOCK_MAP: Record<SpecialBlockType, Block> = {
   space: {
     id: uniqueId(),
     label: "スペース",
@@ -140,15 +111,6 @@ const SPECIAL_BLOCK_MAP: Record<SpecialBlockType, Block> = {
     type: "separator",
   },
 };
-
-const makeCustomTextBlock = (
-  value: string,
-  textColor: ColorPresetKey = "green"
-): Block => ({
-  ...INITIAL_BLOCK_MAP.customText,
-  textColor,
-  value,
-});
 
 const makeStationNumberWithBracketBlocks = (): Block[] => [
   SPECIAL_BLOCK_MAP.narrow,
