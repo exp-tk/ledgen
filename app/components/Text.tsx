@@ -2,14 +2,14 @@ import { ReactNode } from "react";
 import style from "./Text.module.css";
 
 type Props = {
-  size?: "normal" | "big";
+  kind?: "default" | "state" | "name" | "numbering" | "marquee";
   color?: string;
   children: ReactNode;
   enableSpacing?: boolean;
 };
 
 export const Text = ({
-  size = "normal",
+  kind = "default",
   color = "green",
   children,
   enableSpacing,
@@ -24,7 +24,7 @@ export const Text = ({
             <p
               key={c}
               style={{ color }}
-              className={[style.base, style[size]].join(" ")}
+              className={[style.base, style[kind]].join(" ")}
             >
               {c}
             </p>
@@ -34,7 +34,7 @@ export const Text = ({
   }
 
   return (
-    <p className={[style.base, style[size]].join(" ")} style={{ color }}>
+    <p className={[style.base, style[kind]].join(" ")} style={{ color }}>
       {children}
     </p>
   );

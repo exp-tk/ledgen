@@ -1,10 +1,10 @@
 "use client";
 import { useAtomValue } from "jotai";
 import { useMemo } from "react";
+import { formAtom } from "../state/form";
 import { languageAtom } from "../state/language";
 import style from "./LEDHeader.module.css";
 import { Text } from "./Text";
-import { formAtom } from "../state/form";
 
 export const LEDHeader = () => {
   const { stationName, stationNameKana, stationNameRoman, stationNumber } =
@@ -32,13 +32,19 @@ export const LEDHeader = () => {
   return (
     <div className={style.header}>
       <div className={style.state}>
-        <Text color="green">{nextStateText}</Text>
+        <Text color="green" kind="state">
+          {nextStateText}
+        </Text>
       </div>
       <div className={style.station}>
-        <Text enableSpacing={lang !== "en"} size="big" color="orange">
+        <Text enableSpacing={lang !== "en"} kind="name" color="orange">
           {stationNameMap[lang] ?? ""}
         </Text>
-        {lang === "en" && <Text color="orange">({stationNumber})</Text>}
+        {lang === "en" && (
+          <Text color="orange" kind="numbering">
+            ({stationNumber})
+          </Text>
+        )}
       </div>
     </div>
   );
