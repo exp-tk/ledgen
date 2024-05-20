@@ -17,7 +17,7 @@ export type BlockType =
 export type SpecialBlockType = "space" | "separator" | "narrow";
 
 export type Block = {
-  id: string;
+  id?: string;
   label: string;
   type: BlockType | SpecialBlockType;
   formKey?: keyof FormAtom;

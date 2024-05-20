@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { ReactNode } from "react";
 import style from "./Text.module.css";
 
@@ -15,14 +16,20 @@ export const Text = ({
   enableSpacing,
 }: Props) => {
   if (enableSpacing) {
+    const stationCharIds =
+      children
+        ?.toString()
+        .split("")
+        .map(() => nanoid()) ?? [];
+
     return (
       <div className={style.spacingContainer}>
         {children
           ?.toString()
           .split("")
-          .map((c) => (
+          .map((c, i) => (
             <p
-              key={c}
+              key={stationCharIds[i]}
               style={{ color }}
               className={[style.base, style[kind]].join(" ")}
             >
