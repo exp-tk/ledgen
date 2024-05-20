@@ -15,3 +15,7 @@
   mask: radial-gradient(1px, #fff 100%, transparent 100%) 0 0/2px 2px;
   user-select: none;
 }
+
+.container:fullscreen > div {
+  font-size: 2em;
+}

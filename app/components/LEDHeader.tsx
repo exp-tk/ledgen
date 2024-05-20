@@ -40,7 +40,7 @@ export const LEDHeader = () => {
         </Text>
         {lang === "en" && (
           <Text color="orange" kind="numbering">
-            ({stationNumber})
+            {stationNumber.length ? `(${stationNumber})` : ""}
           </Text>
         )}
       </div>

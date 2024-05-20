@@ -1,5 +1,6 @@
 import { useAtomValue } from "jotai";
 import Marquee from "react-fast-marquee";
+
 import { blockAtom } from "../state/block";
 import { formAtom } from "../state/form";
 import style from "./LEDBoard.module.css";
@@ -8,9 +9,15 @@ import { Text } from "./Text";
 export const LEDBoard = () => {
   const formVal = useAtomValue(formAtom);
   const blocks = useAtomValue(blockAtom);
+  const isFullscreen =
+    "document" in global ? document.fullscreenElement : false;
 
   return (
-    <Marquee className={style.marquee} gradient={false} speed={500}>
+    <Marquee
+      className={style.marquee}
+      gradient={false}
+      speed={isFullscreen ? 1000 : 500}
+    >
       <div className={style.container}>
         {blocks.map((block) =>
           // TODO: 定数化

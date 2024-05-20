@@ -1,24 +1,11 @@
-.base {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 1;
-  flex-wrap: wrap;
-}
-
 .default {
+  margin: 0;
   font-size: 4em;
-}
-.default_full {
-  font-size: 8em;
 }
 
 .numbering {
+  margin: 0;
   font-size: 3em;
-}
-.numbering_full {
-  font-size: 6em;
 }
 
 .spacingContainer {

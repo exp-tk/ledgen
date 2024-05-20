@@ -1,6 +1,5 @@
 import { nanoid } from "nanoid";
 import { ReactNode } from "react";
-import { useFullscreen } from "../hooks/useFullscreen";
 import style from "./Text.module.css";
 
 type Props = {
@@ -16,8 +15,6 @@ export const Text = ({
   children,
   enableSpacing,
 }: Props) => {
-  const { isFullscreen } = useFullscreen();
-
   if (enableSpacing) {
     const stationCharIds =
       children
@@ -34,11 +31,7 @@ export const Text = ({
             <p
               key={stationCharIds[i]}
               style={{ color }}
-              className={[
-                style.base,
-                style[kind],
-                isFullscreen ? style[`${kind}_full`] : "",
-              ].join(" ")}
+              className={style[kind]}
             >
               {c}
             </p>
@@ -48,14 +41,7 @@ export const Text = ({
   }
 
   return (
-    <p
-      className={[
-        style.base,
-        style[kind],
-        isFullscreen ? style[`${kind}_full`] : "",
-      ].join(" ")}
-      style={{ color }}
-    >
+    <p className={style[kind]} style={{ color }}>
       {children}
     </p>
   );
