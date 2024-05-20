@@ -34,7 +34,9 @@ export const Text = ({
               className={[
                 style.base,
                 style[kind],
-                document.fullscreenElement ? style[`${kind}_full`] : "",
+                typeof document !== "undefined" && document.fullscreenElement
+                  ? style[`${kind}_full`]
+                  : "",
               ].join(" ")}
             >
               {c}
@@ -49,7 +51,9 @@ export const Text = ({
       className={[
         style.base,
         style[kind],
-        document.fullscreenElement ? style[`${kind}_full`] : "",
+        typeof document !== "undefined" && document.fullscreenElement
+          ? style[`${kind}_full`]
+          : "",
       ].join(" ")}
       style={{ color }}
     >

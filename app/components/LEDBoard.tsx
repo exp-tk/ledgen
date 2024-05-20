@@ -14,7 +14,7 @@ export const LEDBoard = () => {
       className={style.marquee}
       gradient={false}
       speed={
-        document.fullscreenElement
+        typeof document !== "undefined" && document.fullscreenElement
           ? window.innerWidth * 0.4
           : window.innerWidth * 0.25
       }
