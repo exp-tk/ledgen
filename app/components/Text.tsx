@@ -31,7 +31,11 @@ export const Text = ({
             <p
               key={stationCharIds[i]}
               style={{ color }}
-              className={[style.base, style[kind]].join(" ")}
+              className={[
+                style.base,
+                style[kind],
+                document.fullscreenElement ? style[`${kind}_full`] : "",
+              ].join(" ")}
             >
               {c}
             </p>
@@ -41,7 +45,14 @@ export const Text = ({
   }
 
   return (
-    <p className={[style.base, style[kind]].join(" ")} style={{ color }}>
+    <p
+      className={[
+        style.base,
+        style[kind],
+        document.fullscreenElement ? style[`${kind}_full`] : "",
+      ].join(" ")}
+      style={{ color }}
+    >
       {children}
     </p>
   );

@@ -10,9 +10,15 @@
 .default {
   font-size: 5em;
 }
+.default_full {
+  font-size: 8em;
+}
 
 .numbering {
   font-size: 3em;
+}
+.numbering_full {
+  font-size: 6em;
 }
 
 .spacingContainer {
