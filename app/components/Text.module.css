@@ -7,17 +7,12 @@
   flex-wrap: wrap;
 }
 
-.state,
+.default {
+  font-size: 4vw;
+}
+
 .numbering {
-  font-size: 4rem;
-}
-
-.name {
-  font-size: 5rem;
-}
-
-.marquee {
-  font-size: 7rem;
+  font-size: 3vw;
 }
 
 .spacingContainer {

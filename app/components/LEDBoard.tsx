@@ -10,18 +10,14 @@ export const LEDBoard = () => {
   const blocks = useAtomValue(blockAtom);
 
   return (
-    <Marquee className={style.marquee} gradient={false} speed={750}>
+    <Marquee className={style.marquee} gradient={false} speed={640}>
       <div className={style.container}>
         {blocks.map((block) =>
           // TODO: 定数化
           block.type !== "space" &&
           block.type !== "separator" &&
           block.type !== "narrow" ? (
-            <Text
-              key={block.id}
-              kind="marquee"
-              color={block.textColor ?? "green"}
-            >
+            <Text key={block.id} color={block.textColor ?? "green"}>
               {block.formKey ? formVal[block.formKey] : block.value ?? ""}
             </Text>
           ) : (

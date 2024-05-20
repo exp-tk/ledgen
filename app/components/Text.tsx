@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import style from "./Text.module.css";
 
 type Props = {
-  kind?: "default" | "state" | "name" | "numbering" | "marquee";
+  kind?: "default" | "numbering";
   color?: string;
   children: ReactNode;
   enableSpacing?: boolean;

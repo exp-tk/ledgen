@@ -32,12 +32,10 @@ export const LEDHeader = () => {
   return (
     <div className={style.header}>
       <div className={style.state}>
-        <Text color="green" kind="state">
-          {nextStateText}
-        </Text>
+        <Text color="green">{nextStateText}</Text>
       </div>
       <div className={style.station}>
-        <Text enableSpacing={lang !== "en"} kind="name" color="orange">
+        <Text enableSpacing={lang !== "en"} color="orange">
           {stationNameMap[lang] ?? ""}
         </Text>
         {lang === "en" && (

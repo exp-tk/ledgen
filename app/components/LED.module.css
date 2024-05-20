@@ -3,13 +3,13 @@
   color: white;
   margin: 0;
   padding: 0;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 7;
   width: 100%;
-  max-width: 960px;
-  min-width: 480px;
+  max-width: 800px;
+  min-width: 320px;
   height: auto;
-  max-height: 540px;
-  min-height: 272px;
+  max-height: 350px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   mask: radial-gradient(1px, #fff 100%, transparent 100%) 0 0/2px 2px;

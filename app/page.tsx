@@ -1,10 +1,10 @@
 "use client";
-import { Form } from "./components/Form";
+import { useRef } from "react";
 import { Control } from "./components/Control";
+import { Form } from "./components/Form";
 import { LED } from "./components/LED";
 import { useUpdateLanguage } from "./hooks/useUpdateLanguage";
 import styles from "./page.module.css";
-import { useRef } from "react";
 
 export default function Home() {
   const ledRef = useRef<HTMLDivElement | null>(null);
