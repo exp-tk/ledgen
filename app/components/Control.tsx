@@ -4,7 +4,7 @@ export const Control = ({ onRequestFullscreen }: Props) => {
   return (
     <div>
       <button className="" onClick={onRequestFullscreen}>
-        Fullscreen
+        フルスクリーン(iPhone非対応)
       </button>
     </div>
   );
