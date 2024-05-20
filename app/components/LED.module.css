@@ -1,21 +1,38 @@
 .container {
   background-color: #212121;
-  color: white;
   margin: 0;
   padding: 0;
   aspect-ratio: 16 / 6;
   width: 100%;
   max-width: 800px;
-  min-width: 320px;
-  height: auto;
-  max-height: 300px;
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  mask: radial-gradient(1px, #fff 100%, transparent 100%) 0 0/2px 2px;
   user-select: none;
 }
 
-.container:fullscreen > div {
+.container:fullscreen {
   font-size: 1.5em;
+  mask: radial-gradient(1px, #fff 100%, transparent 100%) 0 0/2px 2px;
+}
+
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+  .container:fullscreen {
+    font-size: 1em;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .container:fullscreen {
+    font-size: 1.25em;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .container:fullscreen {
+    font-size: 1.5em;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .container:fullscreen {
+    font-size: 1em;
+  }
 }

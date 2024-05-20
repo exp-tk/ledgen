@@ -1,3 +1,4 @@
+"use client";
 import { useAtomValue } from "jotai";
 import Marquee from "react-fast-marquee";
 
@@ -9,15 +10,11 @@ import { Text } from "./Text";
 export const LEDBoard = () => {
   const formVal = useAtomValue(formAtom);
   const blocks = useAtomValue(blockAtom);
-  const isFullscreen =
-    "document" in global ? document.fullscreenElement : false;
+
+  const speed = "window" in global && window.innerWidth > 425 ? 550 : 250;
 
   return (
-    <Marquee
-      className={style.marquee}
-      gradient={false}
-      speed={isFullscreen ? 1000 : 500}
-    >
+    <Marquee className={style.marquee} gradient={false} speed={speed}>
       <div className={style.container}>
         {blocks.map((block) =>
           // TODO: 定数化

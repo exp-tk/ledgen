@@ -14,9 +14,59 @@
 .space {
   width: 2.5em;
 }
-.separator {
-  width: 10em;
-}
+
 .narrow {
   margin: 0 -2.5em;
+}
+
+.separator {
+  width: 25em;
+}
+
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+  .space {
+    width: 1em;
+  }
+  .narrow {
+    margin: 0 -1em;
+  }
+  .separator {
+    width: 10em;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  .space {
+    width: 1.25em;
+  }
+  .narrow {
+    margin: 0 -1.25em;
+  }
+  .separator {
+    width: 12.5em;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  .space {
+    width: 1.5em;
+  }
+  .narrow {
+    margin: 0 -1.5em;
+  }
+  .separator {
+    width: 15em;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .space {
+    width: 1em;
+  }
+  .narrow {
+    margin: 0 -1em;
+  }
+  .separator {
+    width: 10em;
+  }
 }
