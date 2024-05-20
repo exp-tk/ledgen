@@ -10,9 +10,6 @@
 .state {
   width: 20%;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .station {
