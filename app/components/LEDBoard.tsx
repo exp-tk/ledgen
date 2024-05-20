@@ -10,7 +10,7 @@ export const LEDBoard = () => {
   const blocks = useAtomValue(blockAtom);
 
   return (
-    <Marquee className={style.marquee} gradient={false} speed={640}>
+    <Marquee className={style.marquee} gradient={false} speed={600}>
       <div className={style.container}>
         {blocks.map((block) =>
           // TODO: 定数化
