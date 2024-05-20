@@ -15,15 +15,15 @@ export type FormAtom = {
 };
 
 export const formAtom = atom<FormAtom>({
-  stationName: "南町田グランベリーパーク",
-  stationNameKana: "ミナミマチダグランベリーパーク",
-  stationNameRoman: "Minami-machida Grandberry Park",
-  stationNumber: "DT-25",
-  lineName: "田園都市線",
-  lineNameRoman: "Den-en-toshi Line",
-  trainTypeName: "急行",
-  trainTypeNameRoman: "Express",
-  finalDestinationName: "中央林間",
-  finalDestinationNameRoman: "Chuo-rinkan",
-  finalDestinationNumber: "DT-27",
+  stationName: "茂林寺前",
+  stationNameKana: "モリンジマエ",
+  stationNameRoman: "Morinjimae",
+  stationNumber: "TI-09",
+  lineName: "東武伊勢崎線",
+  lineNameRoman: "Tobu Isesaki Line",
+  trainTypeName: "区間急行",
+  trainTypeNameRoman: "Section Express",
+  finalDestinationName: "浅草",
+  finalDestinationNameRoman: "Asakusa",
+  finalDestinationNumber: "TS-01",
 });
