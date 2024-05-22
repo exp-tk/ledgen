@@ -7,12 +7,19 @@ export const Form = () => {
   const [formVal, setFormVal] = useAtom(formAtom);
 
   const { register, handleSubmit } = useForm<FormAtom>();
-  const onSubmit: SubmitHandler<FormAtom> = (data) => {
-    setFormVal(data);
-  };
+  const onSubmit: SubmitHandler<FormAtom> = (data) => setFormVal(data);
 
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+      <h2 className={style.heading}>走行状態</h2>
+      <div>
+        <label>状態:&nbsp;</label>
+        <select defaultValue={formVal.state} {...register("state")}>
+          <option value="next">次は</option>
+          <option value="approaching">まもなく</option>
+          <option value="arrived">ただいま</option>
+        </select>
+      </div>
       <h2 className={style.heading}>列車種別</h2>
       <div>
         <label>種別名:&nbsp;</label>

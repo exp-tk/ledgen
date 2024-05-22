@@ -7,8 +7,13 @@ import style from "./LEDHeader.module.css";
 import { Text } from "./Text";
 
 export const LEDHeader = () => {
-  const { stationName, stationNameKana, stationNameRoman, stationNumber } =
-    useAtomValue(formAtom);
+  const {
+    stationName,
+    stationNameKana,
+    stationNameRoman,
+    stationNumber,
+    state,
+  } = useAtomValue(formAtom);
 
   const lang = useAtomValue(languageAtom);
   const nextStateText = useMemo(() => {
@@ -18,6 +23,17 @@ export const LEDHeader = () => {
         return "次は";
       case "en":
         return "Next";
+      default:
+        return "";
+    }
+  }, [lang]);
+  const approachingStateText = useMemo(() => {
+    switch (lang) {
+      case "ja":
+      case "kana":
+        return "まもなく";
+      case "en":
+        return "Soon";
       default:
         return "";
     }
@@ -32,7 +48,10 @@ export const LEDHeader = () => {
   return (
     <div className={style.header}>
       <div className={style.state}>
-        <Text color="green">{nextStateText}</Text>
+        {state === "next" && <Text color="green">{nextStateText}</Text>}
+        {state === "approaching" && (
+          <Text color="green">{approachingStateText}</Text>
+        )}
       </div>
       <div className={style.station}>
         <Text enableSpacing={lang !== "en"} color="orange">

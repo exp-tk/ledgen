@@ -1,6 +1,7 @@
 import { atom } from "jotai";
 
 export type FormAtom = {
+  state: "arrived" | "next" | "approaching";
   stationName: string;
   stationNameKana: string;
   stationNameRoman: string;
@@ -15,6 +16,7 @@ export type FormAtom = {
 };
 
 export const formAtom = atom<FormAtom>({
+  state: "next",
   stationName: "茂林寺前",
   stationNameKana: "モリンジマエ",
   stationNameRoman: "Morinjimae",
