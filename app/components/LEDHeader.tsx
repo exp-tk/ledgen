@@ -47,7 +47,12 @@ export const LEDHeader = () => {
 
   return (
     <div className={style.header}>
-      <div className={style.state}>
+      <div
+        className={[
+          style.state,
+          state === "arrived" ? style.zeroWidth : "",
+        ].join(" ")}
+      >
         {state === "next" && <Text color="green">{nextStateText}</Text>}
         {state === "approaching" && (
           <Text color="green">{approachingStateText}</Text>
