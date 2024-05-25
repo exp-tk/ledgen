@@ -1,7 +1,7 @@
 "use client";
 import localFont from "next/font/local";
 import style from "./LED.module.css";
-import { LEDBoard } from "./LEDBoard";
+import { LEDMarquee } from "./LEDMarquee";
 import { LEDHeader } from "./LEDHeader";
 import { forwardRef } from "react";
 
@@ -14,7 +14,7 @@ export const LED = forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <div ref={ref} className={[style.container, dotFont.className].join(" ")}>
       <LEDHeader />
-      <LEDBoard />
+      <LEDMarquee />
     </div>
   );
 });

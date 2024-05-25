@@ -4,10 +4,10 @@ import Marquee from "react-fast-marquee";
 
 import { blockAtom } from "../state/block";
 import { formAtom } from "../state/form";
-import style from "./LEDBoard.module.css";
+import style from "./LEDMarquee.module.css";
 import { Text } from "./Text";
 
-export const LEDBoard = () => {
+export const LEDMarquee = () => {
   const formVal = useAtomValue(formAtom);
   const blocks = useAtomValue(blockAtom);
 
