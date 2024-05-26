@@ -16,16 +16,16 @@ export const LEDMarquee = () => {
   return (
     <Marquee className={style.marquee} gradient={false} speed={speed}>
       <div className={style.container}>
-        {blocks.map((block) =>
+        {blocks.map((blk) =>
           // TODO: 定数化
-          block.type !== "space" &&
-          block.type !== "separator" &&
-          block.type !== "narrow" ? (
-            <Text key={block.id} color={block.textColor ?? "green"}>
-              {block.formKey ? formVal[block.formKey] : block.value ?? ""}
+          blk.type !== "space" &&
+          blk.type !== "separator" &&
+          blk.type !== "narrow" ? (
+            <Text key={blk.id} color={blk.textColor ?? "green"}>
+              {blk.formKey ? formVal[blk.formKey] : blk.value ?? ""}
             </Text>
           ) : (
-            <div key={block.id} className={style[block.type]} />
+            <div key={blk.id} className={style[blk.type]} />
           )
         )}
         <div className={style.separator} />

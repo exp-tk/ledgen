@@ -7,7 +7,7 @@ export const Form = () => {
   const [formVal, setFormVal] = useAtom(formAtom);
 
   const { register, handleSubmit } = useForm<FormAtom>();
-  const onSubmit: SubmitHandler<FormAtom> = (data) => setFormVal(data);
+  const onSubmit: SubmitHandler<FormAtom> = setFormVal;
 
   return (
     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
