@@ -1,0 +1,11 @@
+.container {
+}
+
+.blocks {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.addBlock {
+  margin-top:16px;
+}

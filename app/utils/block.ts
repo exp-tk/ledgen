@@ -6,6 +6,7 @@ export const makeCustomTextBlock = (
   textColor: ColorPresetKey = "green"
 ): Block => ({
   ...INITIAL_BLOCK_MAP.customText,
+  label: value,
   textColor,
   value,
 });
