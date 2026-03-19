@@ -11,13 +11,12 @@ export const LEDMarquee = () => {
   const formVal = useAtomValue(formAtom);
   const blocks = useAtomValue(blockAtom);
 
-  const speed = "window" in global && window.innerWidth > 425 ? 550 : 250;
+  const speed = typeof window !== "undefined" && window.innerWidth > 425 ? 550 : 250;
 
   return (
     <Marquee className={style.marquee} gradient={false} speed={speed}>
       <div className={style.container}>
         {blocks.map((blk) =>
-          // TODO: 定数化
           blk.type !== "space" &&
           blk.type !== "separator" &&
           blk.type !== "narrow" ? (

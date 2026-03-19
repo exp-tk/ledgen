@@ -6,7 +6,7 @@ import { languageAtom } from "../state/language";
 export const useUpdateLanguage = () => {
   const [cur, set] = useAtom(languageAtom);
 
-  const intervalIdRef = useRef<NodeJS.Timeout | undefined>();
+  const intervalIdRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   useEffect(() => {
     if (intervalIdRef.current) {
