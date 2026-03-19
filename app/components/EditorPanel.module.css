@@ -1,0 +1,367 @@
+.panel {
+  width: 100%;
+  max-width: 800px;
+  background: linear-gradient(135deg, #14141f 0%, #1a1a2e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Section titles */
+.sectionTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8888aa;
+  margin: 16px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sectionTitle:first-child,
+.templateSection .sectionTitle {
+  margin-top: 0;
+}
+
+/* Template selector */
+.templateSection {
+  margin-bottom: 8px;
+}
+
+.templateGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.templateCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  font-family: inherit;
+}
+
+.templateCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.templateCardActive {
+  background: rgba(100, 180, 255, 0.1);
+  border-color: rgba(100, 180, 255, 0.4);
+  box-shadow: 0 0 12px rgba(100, 180, 255, 0.08);
+}
+
+.templateCardActive:hover {
+  background: rgba(100, 180, 255, 0.14);
+}
+
+.templateCardCustom {
+  border-style: dashed;
+}
+
+.templateLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c0c0d8;
+}
+
+.templateCardActive .templateLabel {
+  color: #8ac0ff;
+}
+
+.templateDesc {
+  font-size: 0.7rem;
+  color: #666688;
+  line-height: 1.4;
+}
+
+.templateCardActive .templateDesc {
+  color: #7099bb;
+}
+
+/* Form fields */
+.fieldRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.fieldLabel {
+  min-width: 140px;
+  font-size: 0.875rem;
+  color: #9999bb;
+  flex-shrink: 0;
+}
+
+.fieldInput {
+  flex: 1;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #e0e0e8;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  font-family: inherit;
+}
+
+.fieldInput:focus {
+  border-color: rgba(100, 200, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(100, 200, 255, 0.1);
+}
+
+select.fieldInput {
+  cursor: pointer;
+}
+
+select.fieldInput option {
+  background: #1a1a2e;
+  color: #e0e0e8;
+}
+
+/* Advanced toggle */
+.advancedToggle {
+  margin-top: 16px;
+  padding: 8px 0;
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #7777aa;
+  font-size: 0.85rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  transition: color 0.15s;
+}
+
+.advancedToggle:hover {
+  color: #9999cc;
+}
+
+.advancedContent {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: #666688;
+  margin: 0;
+}
+
+/* Block chips (advanced editor) */
+.blocks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 44px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.emptyHint {
+  font-size: 0.8rem;
+  color: #555566;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: grab;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.chip:active {
+  cursor: grabbing;
+}
+
+.chipField {
+  background: rgba(100, 160, 255, 0.1);
+  border: 1px solid rgba(100, 160, 255, 0.25);
+  color: #8ab8ff;
+}
+
+.chipField:hover {
+  background: rgba(100, 160, 255, 0.16);
+  border-color: rgba(100, 160, 255, 0.4);
+}
+
+.chipCustom {
+  background: rgba(180, 140, 255, 0.1);
+  border: 1px solid rgba(180, 140, 255, 0.25);
+  color: #c0a8ff;
+}
+
+.chipCustom:hover {
+  background: rgba(180, 140, 255, 0.16);
+  border-color: rgba(180, 140, 255, 0.4);
+}
+
+.chipSeparator {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  color: #777799;
+}
+
+.chipDragOver {
+  box-shadow: -3px 0 0 0 #6090ff;
+}
+
+.chipLabel {
+  pointer-events: none;
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chipEdit {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(180, 140, 255, 0.5);
+  color: #c0a8ff;
+  font-size: 0.8rem;
+  padding: 0 2px;
+  outline: none;
+  width: 120px;
+  font-family: inherit;
+}
+
+.chipRemove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #888899;
+  font-size: 0.7rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.15s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.chipRemove:hover {
+  background: rgba(255, 80, 80, 0.3);
+  color: #ff6666;
+}
+
+/* Palette */
+.palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.paletteItem {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.paletteItem:active {
+  transform: scale(0.95);
+}
+
+.paletteField {
+  background: rgba(100, 160, 255, 0.06);
+  border: 1px solid rgba(100, 160, 255, 0.15);
+  color: #7099cc;
+}
+
+.paletteField:hover {
+  background: rgba(100, 160, 255, 0.14);
+  border-color: rgba(100, 160, 255, 0.35);
+  color: #8ab8ff;
+}
+
+.paletteCustom {
+  background: rgba(180, 140, 255, 0.06);
+  border: 1px solid rgba(180, 140, 255, 0.15);
+  color: #9988bb;
+}
+
+.paletteCustom:hover {
+  background: rgba(180, 140, 255, 0.14);
+  border-color: rgba(180, 140, 255, 0.35);
+  color: #c0a8ff;
+}
+
+.paletteSeparator {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  color: #666688;
+}
+
+.paletteSeparator:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #8888aa;
+}
+
+@media all and (max-width: 480px) {
+  .panel {
+    padding: 20px 16px;
+  }
+
+  .fieldRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .fieldLabel {
+    min-width: 0;
+  }
+
+  .fieldInput {
+    width: 100%;
+  }
+
+  .templateGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .blocks {
+    padding: 8px;
+  }
+
+  .chipLabel {
+    max-width: 140px;
+  }
+}

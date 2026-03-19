@@ -6,7 +6,6 @@ import {
   COLOR_PREST,
   SpecialBlockType,
 } from "../constants/block";
-import { makeCustomTextBlock } from "../utils/block";
 
 export const INITIAL_BLOCK_MAP: Record<BlockType, Block> = {
   stationName: {
@@ -97,42 +96,7 @@ export const SPECIAL_BLOCK_MAP: Record<SpecialBlockType, Block> = {
   },
 };
 
-const makeStationNumberWithBracketBlocks = (): Block[] => [
-  SPECIAL_BLOCK_MAP.narrow,
-  makeCustomTextBlock("(", "orange"),
-  SPECIAL_BLOCK_MAP.narrow,
-  INITIAL_BLOCK_MAP.finalDestinationNumber,
-  SPECIAL_BLOCK_MAP.narrow,
-  makeCustomTextBlock(")", "orange"),
-  SPECIAL_BLOCK_MAP.narrow,
-];
+export const assignIds = (blocks: Block[]): Block[] =>
+  blocks.map((blk) => ({ ...blk, id: nanoid() }));
 
-const japaneseInitialBlocks: Block[] = [
-  makeCustomTextBlock("この電車は、"),
-  INITIAL_BLOCK_MAP.lineName,
-  SPECIAL_BLOCK_MAP.space,
-  INITIAL_BLOCK_MAP.trainTypeName,
-  SPECIAL_BLOCK_MAP.space,
-  INITIAL_BLOCK_MAP.finalDestinationName,
-  makeCustomTextBlock("行き", "orange"),
-  SPECIAL_BLOCK_MAP.space,
-  makeCustomTextBlock("です。", "green"),
-];
-
-const englishInitialBlocks: Block[] = [
-  makeCustomTextBlock("This is the"),
-  INITIAL_BLOCK_MAP.lineNameRoman,
-  INITIAL_BLOCK_MAP.trainTypeNameRoman,
-  makeCustomTextBlock("train for"),
-  INITIAL_BLOCK_MAP.finalDestinationNameRoman,
-  ...makeStationNumberWithBracketBlocks(),
-  makeCustomTextBlock("."),
-].flatMap((blk) => [blk, SPECIAL_BLOCK_MAP.space]);
-
-const initialBlocks = [
-  ...japaneseInitialBlocks,
-  SPECIAL_BLOCK_MAP.separator,
-  ...englishInitialBlocks,
-].map((blk) => ({ id: nanoid(), ...blk }));
-
-export const blockAtom = atom<Block[]>(initialBlocks);
+export const blockAtom = atom<Block[]>([]);

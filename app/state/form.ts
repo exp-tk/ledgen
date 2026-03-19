@@ -15,7 +15,7 @@ export type FormAtom = {
   finalDestinationNumber: string;
 };
 
-export const formAtom = atom<FormAtom>({
+export const FORM_DEFAULTS: FormAtom = {
   state: "next",
   stationName: "茂林寺前",
   stationNameKana: "モリンジマエ",
@@ -28,4 +28,6 @@ export const formAtom = atom<FormAtom>({
   finalDestinationName: "浅草",
   finalDestinationNameRoman: "Asakusa",
   finalDestinationNumber: "TS-01",
-});
+};
+
+export const formAtom = atom<FormAtom>(FORM_DEFAULTS);
